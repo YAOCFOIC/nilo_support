@@ -39,6 +39,9 @@
 				<div class="text-center">
 					<div class="custom-file-upload">
 					    <input type="file" id="file" name="file"/>
+					    @if($errors->has('file'))
+						<strong class="text-danger">{{ $errors->first('file')}}</strong>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -70,13 +73,19 @@
 					</div>
 				</div>
 				
-				<div class="col-md-12 text-center">
-					<button class="btn btn-violet">Enviar</button>
+				<div class="col-md-12 text-center btn-yellow-dark">
+					<button class="btn">Enviar</button>
 				</div>
 			</div>
 		</form>
 	</div>
+	<br>
 	  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	  <script src='{{asset("js/main.js")}}'></script>
+	  <script src='{{asset("js/ckeditor/ckeditor.js")}}'></script>
+	  <script type="text/javascript">
+	  	CKEDITOR.replace('solution');
+
+	  </script>
 </body>
 </html>

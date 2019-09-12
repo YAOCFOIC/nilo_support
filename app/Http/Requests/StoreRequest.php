@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'category'=>'required',
             'question'=>'required',
             'solution'=>'required',
-            'files'=>'mimes:jpeg,bmp,png,jpg',
+            'files'=>'mimes:jpeg,png,jpg',
         ];
 
 
@@ -39,7 +39,7 @@ class StoreRequest extends FormRequest
             'category.required'=>'El campo categoría es requerido',
             'question.required'=>'El campo pregunta es requerido',
             'solution.required'=>'El campo solución es requerido',
-            'files.required'=>'Formato del campo',
+        
         ];
     }
 }

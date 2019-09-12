@@ -6,6 +6,7 @@ use App\support;
 use Illuminate\Http\Request;
 use Session;
 use App\Http\Requests\StoreRequest;
+use Illuminate\Http\Requestinput;
 
 class SupportController extends Controller
 {
@@ -44,24 +45,36 @@ class SupportController extends Controller
     {
         //support::create($request->all());
         $entrada=$request->all();
-        if ($archivo=$request->file('file')){
+        //si hay información en input de imagen
+        if ($archivo=$request->file('file'))
+        {
             //nombre de la imagen 
             $nombre=$archivo->getClientOriginalName();
             //mueva ese archivo
             $archivo->move('images',$nombre);
+            //guardamos el nombre en el campo BD
             $entrada['file']=$nombre;
-        
-        }else(is_null($request->file('file'))){
-            if ($supports->category=="Facturación Electrónica") {
-                # code...
-            }else if ($supports->category=="CRM") {
-                # code...
-            }else if($supports->category=="Contacto") {
-
-            }else ($supports->category=="Factura Fisica") {
+        } else
+        {
+            $category=$request->input('category');
+            if ($category=="CRM") {
+                $nombre="CRM.jpg";
+                $entrada['file']=$nombre;
+            }else if ($category=="Contacto") {
+                $nombre="Contacto.jpg";           
+                $entrada['file']=$nombre;
+            }else if ($category=="Factura Fisica") {
+                $nombre="facturafisica.png";
+                $entrada['file']=$nombre;
+            }else if ($category=="Facturación Electrónica") {
+                $nombre="facturacionelectronica.jpg";
+                $entrada['file']=$nombre;
+            }else{
 
             }
+
         }
+
         support::create($entrada);
         Session::flash('message','Pregunta creada correctamente');
         return redirect()->route('supports.index');
