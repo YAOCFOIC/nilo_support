@@ -38,7 +38,7 @@
 			<div class="col-md-12">
 				<div class="text-center">
 					<div class="custom-file-upload">
-					    <input type="file" id="file" name="file"/>
+					    <input type="file" id="file" name="file" onchange="return fileValidation()" />
 					    @if($errors->has('file'))
 						<strong class="text-danger">{{ $errors->first('file')}}</strong>
 						@endif
@@ -83,9 +83,23 @@
 	  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	  <script src='{{asset("js/main.js")}}'></script>
 	  <script src='{{asset("js/ckeditor/ckeditor.js")}}'></script>
+	  <script src='{{asset("js/validate.js")}}'></script>
 	  <script type="text/javascript">
 	  	CKEDITOR.replace('solution');
-
+	  	function fileValidation(){
+			var fileInput = document.getElementById("file");
+			var filePath = fileInput.value;
+			var allowedExtension = /(\.jpg\.jpeg\.png\.svg)$/i;
+			if (!allowedExtension.exec(filePath)) {
+				alert("Por favor inserte un formato de imagen valido .jpeg,.png,.jpg,.svg");
+				fileInput.value='';
+				return false;
+			}else{
+				alert("imagen corrrecta");
+			}
+		}
 	  </script>
+	  
+
 </body>
 </html>

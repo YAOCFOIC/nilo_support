@@ -127,3 +127,4 @@
 }(jQuery));
 
 $('input[type=file]').customFile();
+

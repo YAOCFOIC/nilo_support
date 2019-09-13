@@ -61,5 +61,10 @@
 			</div>
 		</form>
 	</div>
+	<script src='{{asset("js/ckeditor/ckeditor.js")}}'></script>
+	<script src='{{asset("js/main.js")}}'></script>
+	<script type="text/javascript">
+		CKEDITOR.replace('solution');
+	</script>
 </body>
 </html>

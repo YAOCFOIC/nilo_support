@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Requests\StoreRequest;
 use Illuminate\Http\Requestinput;
-
+use Illuminate\Support\Str;
 class SupportController extends Controller
 {
     /**
@@ -50,6 +50,11 @@ class SupportController extends Controller
         {
             //nombre de la imagen 
             $nombre=$archivo->getClientOriginalName();
+
+            $nombre2 = pathinfo($nombre, PATHINFO_EXTENSION);
+            //random
+            $nombre=Str::random(40);
+
             //mueva ese archivo
             $archivo->move('images',$nombre);
             //guardamos el nombre en el campo BD

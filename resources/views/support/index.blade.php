@@ -68,6 +68,7 @@
 	  </tbody>
 	</table>
 	{{ $supports->links()}}
+	
 </div>
 </body>
 </html>
