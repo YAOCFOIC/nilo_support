@@ -53,7 +53,7 @@
 	      <th scope="row">{{ $support->id }}</th>
 	      <td>{{ $support->category }}</td>
 	      <td>{{ $support->question }}</td>
-	      <td>{{ $support->solution }}</td>
+	      <td>{!! $support->solution !!}</td>
 	      <td><img src="images/{{$support->file}}" width="125"></td>
 	      <td>
 	      	<a href="{{route('supports.edit',$support->id)}}" class="btn btn-primary">Editar</a>

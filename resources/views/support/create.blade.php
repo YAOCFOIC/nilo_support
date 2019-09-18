@@ -84,22 +84,5 @@
 	  <script src='{{asset("js/main.js")}}'></script>
 	  <script src='{{asset("js/ckeditor/ckeditor.js")}}'></script>
 	  <script src='{{asset("js/validate.js")}}'></script>
-	  <script type="text/javascript">
-	  	CKEDITOR.replace('solution');
-	  	function fileValidation(){
-			var fileInput = document.getElementById("file");
-			var filePath = fileInput.value;
-			var allowedExtension = /(\.jpg\.jpeg\.png\.svg)$/i;
-			if (!allowedExtension.exec(filePath)) {
-				alert("Por favor inserte un formato de imagen valido .jpeg,.png,.jpg,.svg");
-				fileInput.value='';
-				return false;
-			}else{
-				alert("imagen corrrecta");
-			}
-		}
-	  </script>
-	  
-
 </body>
 </html>

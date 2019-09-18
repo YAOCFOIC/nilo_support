@@ -17,7 +17,7 @@ class CreateSupportsTable extends Migration
             $table->bigIncrements('id');
             $table->string('category');
             $table->string('question');
-            $table->string('solution');
+            $table->longText('solution');
             $table->timestamps();
         });
     }
