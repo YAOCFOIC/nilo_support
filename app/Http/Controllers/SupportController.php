@@ -75,7 +75,7 @@ class SupportController extends Controller
                 $nombre="facturacionelectronica.jpg";
                 $entrada['file']=$nombre;
             }else{
-                alert("sección invalida");
+                echo"<script>alert('sección invalida')</script>";
                 $nombre="";
                 $entrada['file']=$nombre;
             }
